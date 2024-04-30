@@ -30,7 +30,10 @@ import {
 } from "@/components/ui/drawer";
 import FeedBackForm from "@/app/(components)/FeedBackForm";
 import StarsDisplay from "@/app/(components)/StarsDisplay";
-import {fetchAllCars} from "@/app/api/Cars/fetchcardataa"
+import {fetchAllCars} from "@/app/api/Cars/fetchcardataa";
+import {fetchAllFeedBack} from "@/app/api/FeedBack/fetchfeedbacks";
+
+
 
 interface Comment {
   _id: string;
@@ -48,16 +51,6 @@ const truncateDescription = (description:string, maxLength:number) => {
   return description;
 };
 
-const getAllReviews = async () => {
-  try {
-    const res = await fetch("api/FeedBack", {
-      cache: "no-store",
-    });
-    return res.json();
-  } catch (err) {
-    console.log("failed to get Cars", err);
-  }
-};
 
 interface Props {
   params: {
@@ -70,7 +63,6 @@ interface Props {
 async function page({ params }:Props) {
   let car = {};
   const response = await fetchOneCar(params.id);
-  console.log(response);
 
   const cars: any = await fetchAllCars(); // Définir le type explicite pour `cars`
 
@@ -85,13 +77,13 @@ async function page({ params }:Props) {
   };
   const randomCars = selectRandomCars(); 
 
-  const { feedbacks } = await getAllReviews();
+  const feedbacks:any  = await fetchAllFeedBack();
 
-  const filteredFeedbacks = feedbacks.filter(
-    (feedBack:any) => feedBack.idOfProduct === response._id
+   const filteredFeedbacks = feedbacks.filter(
+    (feedBack:any) => feedBack.idOfProduct == response._id
   );
 
-  const filteredFeedbacksreverse = filteredFeedbacks.reverse();
+  const filteredFeedbacksreverse = filteredFeedbacks.reverse(); 
 
   const returnLogo = () => {
     if (response.name.includes("BMW" || "bmw")) {
@@ -306,7 +298,7 @@ async function page({ params }:Props) {
         {filteredFeedbacksreverse.length > 0 ? (
           <>
             <div className="grid grid-cols-3 gap-4">
-              {filteredFeedbacksreverse.slice(0, 3).map((feedBack:Comment) => {
+              {filteredFeedbacksreverse.slice(0, 3).map((feedBack:any) => {
                 return (
                   <div key={feedBack._id}>
                     <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] mx-auto ">

@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import {
   Card,
@@ -17,7 +15,7 @@ import { Separator } from "@/components/ui/separator";
 import BadgeCardSpe from "../(components)/BadgeCardSpe";
 import Link from "next/link";
 import SearchBar from "../(components)/SearchBar";
-import { fetchAllCars } from "@/app/api/Cars/fetchcardataa";
+import {fetchAllCars} from "@/app/api/Cars/fetchcardataa"
 
 interface Car {
   _id: string;
@@ -31,25 +29,20 @@ interface Car {
   price: number;
   consumption: string;
 }
-
-const truncateDescription = (description: string, maxLength: number) => {
+// Fonction pour tronquer le texte à la longueur désirée
+const truncateDescription = (description:string, maxLength:number) => {
   if (description.length > maxLength) {
     return description.substring(0, maxLength) + "...";
   }
   return description;
 };
 
-function Page() {
-  const [cars, setCars] = useState<Car[]>([]);
+async function Page() {
+  const cars: any = await fetchAllCars();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const fetchedCars:any = await fetchAllCars();
-      setCars(fetchedCars);
-    };
+  let filterCars = [];
 
-    fetchData();
-  }, []); // Empty dependency array ensures this effect runs only once after initial render
+  
 
   return (
     <>
@@ -58,7 +51,7 @@ function Page() {
         <Separator />
       </div>
       <div className="grid grid-cols-3 w-[80%] mx-auto mt-12 gap-8">
-        {cars.map((car: Car) => {
+        {cars.map((car:Car) => {
           return (
             <div key={car._id} className=" cursor-pointer">
               <Card className="hover:shadow-lg ease-in-out duration-150">
