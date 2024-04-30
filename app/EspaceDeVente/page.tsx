@@ -16,16 +16,7 @@ import BadgeCardSpe from "../(components)/BadgeCardSpe";
 import Link from "next/link";
 import SearchBar from "../(components)/SearchBar";
 import {fetchAllCars} from "@/app/api/Cars/fetchcardataa"
-const getCars = async () => {
-  try {
-    const res = await fetch("/api/Cars", {
-      cache: "no-store",
-    });
-    return res.json();
-  } catch (err) {
-    console.log("failed to get Cars", err);
-  }
-};
+
 interface Car {
   _id: string;
   image: string;

@@ -14,16 +14,9 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import BadgeCardSpe from "@/app/(components)/BadgeCardSpe";
 import Link from "next/link";
-const getCars = async () => {
-  try {
-    const res = await fetch("/api/Cars", {
-      cache: "no-store",
-    });
-    return res.json();
-  } catch (err) {
-    console.log("failed to get Cars", err);
-  }
-};
+import {fetchAllCars} from "@/app/api/Cars/fetchcardataa"
+
+
 
 const truncateDescription = (description:string, maxLength:number) => {
   if (description.length > maxLength) {
@@ -32,7 +25,7 @@ const truncateDescription = (description:string, maxLength:number) => {
   return description;
 };
 async function page() {
-  const { cars } = await getCars();
+  const cars: any = await fetchAllCars();
   return (
     <div>
       <div className="grid grid-cols-3 w-[80%] mx-auto mt-12 gap-8">
