@@ -24,7 +24,7 @@ import { useRouter } from "next/navigation";
 function FeedBackForm({ idOfProduct }:{idOfProduct:string}) {
   const router = useRouter();
   const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    const res = await fetch("http://localhost:3000/api/FeedBack/", {
+    const res = await fetch("/api/FeedBack", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

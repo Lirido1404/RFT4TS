@@ -22,7 +22,7 @@ const RandomCars = () => {
   useEffect(() => {
     const getAllCars = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/Cars/", {
+        const res = await fetch("/api/Cars", {
           cache: "no-store",
         });
         const data = await res.json();

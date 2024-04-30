@@ -50,7 +50,7 @@ const truncateDescription = (description:string, maxLength:number) => {
 
 const getAllReviews = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/FeedBack/", {
+    const res = await fetch("api/FeedBack", {
       cache: "no-store",
     });
     return res.json();

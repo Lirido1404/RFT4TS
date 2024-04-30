@@ -18,7 +18,7 @@ import SearchBar from "../(components)/SearchBar";
 import {fetchAllCars} from "@/app/api/Cars/fetchcardataa"
 const getCars = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/Cars/", {
+    const res = await fetch("/api/Cars", {
       cache: "no-store",
     });
     return res.json();

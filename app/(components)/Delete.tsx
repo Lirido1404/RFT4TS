@@ -7,7 +7,7 @@ function Delete({ id }:{id:string}) {
   const router = useRouter();
 
   const handleDelete = async () => {
-    const res = await fetch(`http://localhost:3000/api/Cars/${id}`, {
+    const res = await fetch(`/api/Cars/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {
