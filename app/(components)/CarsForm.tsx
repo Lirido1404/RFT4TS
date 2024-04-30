@@ -17,7 +17,7 @@ function CarsForm() {
     datesortie: "",
   });
 
-  const handlesubmit = async (e) => {
+  const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch("http://localhost:3000/api/Cars", {
       method: "POST",
@@ -28,11 +28,11 @@ function CarsForm() {
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value, files } = e.target;
 
     // Si le champ est un champ de type file, c'est pour l'image
-    if (name === "image") {
+    if (files && name === "image") {
       const file = files[0];
       // Vérifie s'il y a un fichier sélectionné
       if (file) {
@@ -48,20 +48,19 @@ function CarsForm() {
     }
   };
 
-  const convertToBase64 = (file) => {
+  const convertToBase64 = (file: any) => {
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      setImage(reader.result);
-      setFormData((prevState) => ({
-        ...prevState,
-        image: reader.result,
-      }));
+        if (reader.result) {
+            setImage(reader.result as string);
+            setFormData((prevState) => ({
+                ...prevState,
+                image: reader.result as string,
+            }));
+        }
     };
-    reader.onerror = (error) => {
-      console.log("error", error);
-    };
-  };
+  }
 
   return (
     <>

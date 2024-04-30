@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-function Delete({ id }) {
+function Delete({ id }:{id:string}) {
   const router = useRouter();
 
   const handleDelete = async () => {

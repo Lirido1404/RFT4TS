@@ -25,7 +25,7 @@ const getCars = async () => {
   }
 };
 
-const truncateDescription = (description, maxLength) => {
+const truncateDescription = (description:string, maxLength:number) => {
   if (description.length > maxLength) {
     return description.substring(0, maxLength) + "...";
   }
@@ -36,7 +36,7 @@ async function page() {
   return (
     <div>
       <div className="grid grid-cols-3 w-[80%] mx-auto mt-12 gap-8">
-        {cars.map((car) => {
+        {cars.map((car:any) => {
           return (
             <div key={car._id} className=" cursor-pointer">
               <Card className="hover:shadow-lg ease-in-out duration-150">

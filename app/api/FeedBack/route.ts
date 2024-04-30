@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import FeedBack from "@/app/(models)/FeedBack";
 
-export async function POST(req) {
+export async function POST(req:Request) {
   try {
     const feedBackData = await req.json(); // Récupérer directement les données du corps de la requête
 
@@ -18,7 +18,7 @@ export async function GET() {
     const feedbacks = await FeedBack.find();
     return NextResponse.json({ feedbacks }, { status: 200 });
   } catch (err) {
-    return NextResponse(
+    return NextResponse.json(
       { message: "Failed to get infos about feedback", err },
       { status: 500 }
     );

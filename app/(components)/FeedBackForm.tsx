@@ -8,17 +8,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useForm } from "react-hook-form";
 import { Label } from "@/components/ui/label";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+
 
 import { DrawerClose, DrawerFooter } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
@@ -26,9 +17,13 @@ import { Textarea } from "@/components/ui/textarea";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-function FeedBackForm({ idOfProduct }) {
+
+
+
+
+function FeedBackForm({ idOfProduct }:{idOfProduct:string}) {
   const router = useRouter();
-  const handlesubmit = async (e) => {
+  const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const res = await fetch("http://localhost:3000/api/FeedBack/", {
       method: "POST",
       headers: {
@@ -49,7 +44,7 @@ function FeedBackForm({ idOfProduct }) {
     idOfProduct: idOfProduct,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const value =
       e.target.name === "note" ? parseInt(e.target.value) : e.target.value;
     const name = e.target.name;

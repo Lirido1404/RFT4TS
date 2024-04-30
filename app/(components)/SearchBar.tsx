@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 
-function SearchBar({ cars }) {
+function SearchBar({ cars }:any) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filtre = () => {
-    cars.filter((car) => {
+    cars.filter((car:any) => {
       return cars.name.includes(searchTerm);
     });
   };

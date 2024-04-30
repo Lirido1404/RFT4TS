@@ -13,7 +13,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 import { Separator } from "@/components/ui/separator";
-function BadgeCardSpe({ perf, power, emission }) {
+
+interface Props {
+  perf: string;
+  power: string;
+  emission: string;
+}
+
+
+function BadgeCardSpe({ perf, power, emission }:Props) {
   return (
     <div className="flex gap-4">
       <Badge variant="outline">{power}</Badge>

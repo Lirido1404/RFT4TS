@@ -3,7 +3,7 @@ import "./globals.css";
 import Nav from "./(components)/Nav";
 import FlecheRemonte from "./(components)/FlecheRemonte";
 import Footer from "./(components)/Footer";
-
+import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

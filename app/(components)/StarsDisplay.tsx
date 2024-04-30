@@ -1,7 +1,12 @@
 import Image from "next/image";
 import React from "react";
 
-function StarsDisplay({ feedBack }) {
+
+interface Props {
+  feedBack: number;
+}
+
+function StarsDisplay({ feedBack }:Props) {
   const stars = [];
 
   for (let i = 0; i < feedBack; i++) {

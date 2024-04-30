@@ -26,9 +26,20 @@ const getCars = async () => {
     console.log("failed to get Cars", err);
   }
 };
-
+interface Car {
+  _id: string;
+  image: string;
+  name: string;
+  datesortie: string;
+  description: string;
+  emission: string;
+  power: string;
+  performance: string;
+  price: number;
+  consumption: string;
+}
 // Fonction pour tronquer le texte à la longueur désirée
-const truncateDescription = (description, maxLength) => {
+const truncateDescription = (description:string, maxLength:number) => {
   if (description.length > maxLength) {
     return description.substring(0, maxLength) + "...";
   }
@@ -36,7 +47,7 @@ const truncateDescription = (description, maxLength) => {
 };
 
 async function Page() {
-  const  cars  = await fetchAllCars();
+  const cars: any = await fetchAllCars();
 
   let filterCars = [];
 
@@ -49,7 +60,7 @@ async function Page() {
         <Separator />
       </div>
       <div className="grid grid-cols-3 w-[80%] mx-auto mt-12 gap-8">
-        {cars.map((car) => {
+        {cars.map((car:Car) => {
           return (
             <div key={car._id} className=" cursor-pointer">
               <Card className="hover:shadow-lg ease-in-out duration-150">

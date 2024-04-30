@@ -1,5 +1,5 @@
 "use client";
-function GenerateRandomCars({ randomCars }) {
+function GenerateRandomCars({ randomCars }:any) {
   return <button onClick={() => randomCars()}>Générer</button>;
 }
 

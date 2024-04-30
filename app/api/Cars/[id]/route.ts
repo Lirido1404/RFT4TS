@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Cars from "@/app/(models)/Carsdetail";
 
-export async function GET(req, { params }) {
+export async function GET(req:Request, { params }:{params:any}) {
   try {
     const id = params.id;
     const foundCars = await Cars.findOne({ _id: id });
@@ -11,7 +11,7 @@ export async function GET(req, { params }) {
   }
 }
 
-export async function DELETE(req, { params }) {
+export async function DELETE(req:Request, { params }:{params:any}) {
   try {
     const { id } = params;
     await Cars.findByIdAndDelete(id);
@@ -21,7 +21,7 @@ export async function DELETE(req, { params }) {
   }
 }
 
-export async function PUT(req, { params }) {
+export async function PUT(req:Request, { params }:{params:any}) {
   try {
     const id = params.id;
     const body = await req.json();

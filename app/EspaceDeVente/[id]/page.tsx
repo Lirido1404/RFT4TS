@@ -30,36 +30,24 @@ import {
 } from "@/components/ui/drawer";
 import FeedBackForm from "@/app/(components)/FeedBackForm";
 import StarsDisplay from "@/app/(components)/StarsDisplay";
+import {fetchAllCars} from "@/app/api/Cars/fetchcardataa"
 
-const getAllCars = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/Cars/", {
-      cache: "no-store",
-    });
-    return res.json();
-  } catch (err) {
-    console.log("failed to get Cars", err);
-  }
-};
+interface Comment {
+  _id: string;
+  titre: string;
+  nom: string;
+  description: string;
+  note: number;
+}
 
-const truncateDescription = (description, maxLength) => {
+
+const truncateDescription = (description:string, maxLength:number) => {
   if (description.length > maxLength) {
     return description.substring(0, maxLength) + "...";
   }
   return description;
 };
-/*
-export async function getCar(id) {
-  try {
-    const res = await fetch(`http://localhost:3000/api/Cars/${id}`, {
-      cache: "no-store",
-    });
-    return res.json();
-  } catch (err) {
-    console.log("Failed to get Car Data", err);
-  }
-}
-*/
+
 const getAllReviews = async () => {
   try {
     const res = await fetch("http://localhost:3000/api/FeedBack/", {
@@ -71,34 +59,42 @@ const getAllReviews = async () => {
   }
 };
 
-async function page({ params }) {
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
+
+
+async function page({ params }:Props) {
   let car = {};
   const response = await fetchOneCar(params.id);
   console.log(response);
 
-  const { cars } = await getAllCars();
+  const cars: any = await fetchAllCars(); // Définir le type explicite pour `cars`
 
   const selectRandomCars = () => {
     const randomCars = [];
-    const totalCars = cars.length;
+    const totalCars: number = cars.length; // Définir le type explicite pour `totalCars`
     for (let i = 0; i < 6; i++) {
       const randomIndex = Math.floor(Math.random() * totalCars);
       randomCars.push(cars[randomIndex]);
     }
     return randomCars;
   };
-  const randomCars = selectRandomCars();
+  const randomCars = selectRandomCars(); 
 
   const { feedbacks } = await getAllReviews();
 
   const filteredFeedbacks = feedbacks.filter(
-    (feedBack) => feedBack.idOfProduct === car._id
+    (feedBack:any) => feedBack.idOfProduct === response._id
   );
 
   const filteredFeedbacksreverse = filteredFeedbacks.reverse();
 
   const returnLogo = () => {
-    if (car.name.includes("BMW" || "bmw")) {
+    if (response.name.includes("BMW" || "bmw")) {
       return (
         <>
           <Image
@@ -110,7 +106,7 @@ async function page({ params }) {
           />
         </>
       );
-    } else if (car.name.includes("Mercedes" || "mercedes")) {
+    } else if (response.name.includes("Mercedes" || "mercedes")) {
       return (
         <>
           <Image
@@ -122,7 +118,7 @@ async function page({ params }) {
           />
         </>
       );
-    } else if (car.name.includes("Audi" || "audi" || "AUDI")) {
+    } else if (response.name.includes("Audi" || "audi" || "AUDI")) {
       return (
         <>
           <Image
@@ -142,7 +138,7 @@ async function page({ params }) {
   return (
     <div className="w-[80%] mx-auto mt-8">
       <div className=" flex justify-between items-center">
-        <h1 className="pcar text-7xl font-bold">{car.name}</h1>
+        <h1 className="pcar text-7xl font-bold">{response.name}</h1>
         {returnLogo()}
       </div>
       <div className="mt-6">
@@ -155,7 +151,7 @@ async function page({ params }) {
               <div className="flex justify-center">
                 <div className="">
                   <Image
-                    src={car.image}
+                    src={response.image}
                     width={200}
                     height={200}
                     alt="bmw"
@@ -164,20 +160,20 @@ async function page({ params }) {
                 </div>
               </div>
               <div className="p-6">
-                <CardTitle>{car.name}</CardTitle>
-                <CardDescription> {car.datesortie} </CardDescription>
+                <CardTitle>{response.name}</CardTitle>
+                <CardDescription> {response.datesortie} </CardDescription>
               </div>
             </CardHeader>
             <CardContent>
               <div className="">
-                <p>{car.description}</p>
+                <p>{response.description}</p>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
               <BadgeCardSpe
-                emission={car.emission}
-                power={car.power}
-                perf={car.performance}
+                emission={response.emission}
+                power={response.power}
+                perf={response.performance}
               />
             </CardFooter>
           </Card>
@@ -202,7 +198,7 @@ async function page({ params }) {
                   />
                 </div>
               </td>
-              <td className="font-bold"> {car.name} </td>
+              <td className="font-bold"> {response.name} </td>
             </tr>
             <tr>
               <td>
@@ -216,7 +212,7 @@ async function page({ params }) {
                   />
                 </div>
               </td>
-              <td className="font-bold">{car.power}</td>
+              <td className="font-bold">{response.power}</td>
             </tr>
             <tr>
               <td>
@@ -230,7 +226,7 @@ async function page({ params }) {
                   />
                 </div>
               </td>
-              <td className="font-bold">{car.consumption}</td>
+              <td className="font-bold">{response.consumption}</td>
             </tr>
             <tr>
               <td>
@@ -244,7 +240,7 @@ async function page({ params }) {
                   />
                 </div>
               </td>
-              <td className="font-bold">{car.emission}</td>
+              <td className="font-bold">{response.emission}</td>
             </tr>
             <tr>
               <td>
@@ -258,7 +254,7 @@ async function page({ params }) {
                   />
                 </div>
               </td>
-              <td className="font-bold">{car.performance}</td>
+              <td className="font-bold">{response.performance}</td>
             </tr>
             <tr>
               <td>
@@ -272,7 +268,7 @@ async function page({ params }) {
                   />
                 </div>
               </td>
-              <td className="font-bold">{car.datesortie}</td>
+              <td className="font-bold">{response.datesortie}</td>
             </tr>
             <tr>
               <td>
@@ -286,7 +282,7 @@ async function page({ params }) {
                   />
                 </div>
               </td>
-              <td className="font-bold">{car.price} €</td>
+              <td className="font-bold">{response.price} €</td>
             </tr>
           </tbody>
         </table>
@@ -302,7 +298,7 @@ async function page({ params }) {
           </DrawerTrigger>
 
           <DrawerContent>
-            <FeedBackForm idOfProduct={car._id} />
+            <FeedBackForm idOfProduct={response._id} />
           </DrawerContent>
         </Drawer>
       </div>
@@ -310,7 +306,7 @@ async function page({ params }) {
         {filteredFeedbacksreverse.length > 0 ? (
           <>
             <div className="grid grid-cols-3 gap-4">
-              {filteredFeedbacksreverse.slice(0, 3).map((feedBack) => {
+              {filteredFeedbacksreverse.slice(0, 3).map((feedBack:Comment) => {
                 return (
                   <div key={feedBack._id}>
                     <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] mx-auto ">
@@ -348,7 +344,7 @@ async function page({ params }) {
       <div className="mt-14">
         <ScrollArea className="whitespace-nowrap rounded-md border shadow hover:shadow-lg">
           <div className="flex w-max space-x-8 p-4">
-            {randomCars.map((car) => {
+             {randomCars.map((car) => {
               return (
                 <div key={car._id} className="cursor-pointer">
                   <Card className="hover:shadow-lg ease-in-out duration-150 w-96">

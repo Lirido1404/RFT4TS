@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Cars from "@/app/(models)/Carsdetail";
 
-export async function POST(req) {
+export async function POST(req:Request) {
   try {
     const carsData = await req.json(); // Récupérer directement les données du corps de la requête
 

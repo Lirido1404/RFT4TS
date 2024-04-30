@@ -35,7 +35,7 @@ const RandomCars = () => {
     getAllCars();
   }, []);
 
-  const truncateDescription = (description, maxLength) => {
+  const truncateDescription = (description:string, maxLength:number) => {
     if (description.length > maxLength) {
       return description.substring(0, maxLength) + "...";
     }
@@ -43,7 +43,7 @@ const RandomCars = () => {
   };
 
   const selectRandomCars = () => {
-    const randomCars = [];
+    const randomCars:any = [];
     const totalCars = cars.length;
     // Sélectionner trois voitures aléatoires
     for (let i = 0; i < 3; i++) {
@@ -58,7 +58,7 @@ const RandomCars = () => {
 
   return (
     <div>
-      {randomCars.map((car) => {
+      {randomCars.map((car:any) => {
         return (
           <div key={car._id} className="cursor-pointer">
             <Card className="hover:shadow-lg ease-in-out duration-150">
