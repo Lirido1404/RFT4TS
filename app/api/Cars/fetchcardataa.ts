@@ -1,13 +1,11 @@
-import { NextResponse } from "next/server";
 import Cars from "@/app/(models)/Carsdetail";
 
 export async function fetchAllCars() {
   try {
-    return await Cars.find();
+    const cars = await Cars.find();
+    return cars; // Retourner directement les données des voitures
   } catch (err) {
-    return NextResponse.json(
-      { message: "Failed to get infos about cars", err },
-      { status: 500 }
-    );
+    console.error("Failed to get infos about cars", err);
+    throw err; // Renvoyer l'erreur pour qu'elle soit gérée ailleurs
   }
 }
