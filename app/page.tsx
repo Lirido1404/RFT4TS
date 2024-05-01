@@ -131,7 +131,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e889963d9c9cfcf606970d"}>
+              <Link href={"/EspaceDeVente/6632011ee9d6f145b719ee17"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
               <Badge variant="outline">New</Badge>
@@ -162,7 +162,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88a373d9c9cfcf6069718"}>
+              <Link href={"/EspaceDeVente/6632024d85c2358e94f0d410"}>
                 <Button variant="destructive">View Car</Button>{" "}
               </Link>
             </CardFooter>
@@ -192,7 +192,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88a9f3d9c9cfcf6069723"}>
+              <Link href={"/EspaceDeVente/663202e685c2358e94f0d412"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
             </CardFooter>
