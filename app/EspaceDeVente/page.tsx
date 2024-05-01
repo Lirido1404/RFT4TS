@@ -15,7 +15,7 @@ import { Separator } from "@/components/ui/separator";
 import BadgeCardSpe from "../(components)/BadgeCardSpe";
 import Link from "next/link";
 import SearchBar from "../(components)/SearchBar";
-import {fetchAllCars} from "@/app/api/Cars/fetchcardataa"
+import { fetchAllCars } from "@/app/api/Cars/fetchcardataa";
 
 interface Car {
   _id: string;
@@ -29,7 +29,8 @@ interface Car {
   price: number;
   consumption: string;
 }
-const truncateDescription = (description:string, maxLength:number) => {
+
+const truncateDescription = (description: string, maxLength: number) => {
   if (description.length > maxLength) {
     return description.substring(0, maxLength) + "...";
   }
@@ -37,11 +38,13 @@ const truncateDescription = (description:string, maxLength:number) => {
 };
 
 async function Page() {
-  const cars: any = await fetchAllCars();
+  let cars: any = [];
 
-  let filterCars = [];
-
-  
+  try {
+    cars = await fetchAllCars();
+  } catch (error) {
+    console.error("Error fetching cars:", error);
+  }
 
   return (
     <>
@@ -50,8 +53,8 @@ async function Page() {
         <Separator />
       </div>
       <div className="grid grid-cols-3 w-[80%] mx-auto mt-12 gap-8">
-        {cars.map((car:Car) => {
-          return (
+        {Array.isArray(cars) &&
+          cars.map((car: Car) => (
             <div key={car._id} className=" cursor-pointer">
               <Card className="hover:shadow-lg ease-in-out duration-150">
                 <CardHeader className="">
@@ -85,8 +88,7 @@ async function Page() {
                 </CardFooter>
               </Card>
             </div>
-          );
-        })}
+          ))}
       </div>
     </>
   );
