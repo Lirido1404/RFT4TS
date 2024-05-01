@@ -63,6 +63,7 @@ interface Props {
 async function page({ params }:Props) {
   let car = {};
   const response = await fetchOneCar(params.id);
+  console.log(response)
 
   const cars: any = await fetchAllCars(); // Définir le type explicite pour `cars`
 

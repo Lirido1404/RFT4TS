@@ -19,7 +19,7 @@ const nextConfig = {
         hostname: "img.goodfon.com",
       },
     ],
-  },
+  }, 
 };
 
 export default nextConfig;

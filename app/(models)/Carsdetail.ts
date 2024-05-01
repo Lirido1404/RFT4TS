@@ -3,6 +3,10 @@ import mongoose, { Schema } from "mongoose";
 mongoose.connect(process.env.MONGODB_URI as string);
 mongoose.Promise = global.Promise;
 
+mongoose.connection.on('connected', () => {
+  console.log("Connexion réussie à la base de données");
+});
+
 const carsSchema = new Schema(
   {
     name: String,
