@@ -29,7 +29,6 @@ interface Car {
   price: number;
   consumption: string;
 }
-// Fonction pour tronquer le texte à la longueur désirée
 const truncateDescription = (description:string, maxLength:number) => {
   if (description.length > maxLength) {
     return description.substring(0, maxLength) + "...";

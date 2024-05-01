@@ -111,7 +111,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/bmw/bmwm2t.jpg"
+                  src="https://images.pexels.com/photos/12249428/pexels-photo-12249428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -142,7 +142,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/bmw/m3.jpg"
+                  src="https://images.pexels.com/photos/18554951/pexels-photo-18554951/free-photo-of-route-soleil-couchant-coucher-de-soleil-coucher-du-soleil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -172,7 +172,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/bmw/bmw135i2.jpg"
+                  src="https://wallpapercave.com/wp/wp3192871.jpg"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -202,7 +202,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/bmw/bmwm5.jpg"
+                  src="https://carfans.fr/wp-content/uploads/2022/10/BMW-M5-CS-arriere.jpg.webp"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -240,7 +240,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/mercedes/w205.jpg"
+                  src="https://img.goodfon.com/original/2048x1351/0/eb/mercedes-c63-amg-black-face-front-autumn-sight-w205.jpg"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -270,7 +270,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/mercedes/classG.jpg"
+                  src="https://images.pexels.com/photos/19597723/pexels-photo-19597723/free-photo-of-route-campagne-voiture-vehicule.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -300,7 +300,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/mercedes/cls63.jpg"
+                  src="https://images.pexels.com/photos/19758543/pexels-photo-19758543/free-photo-of-voiture-vehicule-mercedes-argent.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width={200}
                   height={200}
                   alt="bmw"
