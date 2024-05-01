@@ -192,7 +192,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/663202e685c2358e94f0d412"}>
+              <Link href={"/EspaceDeVente/66322e9c7229e5ff78d71026"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
             </CardFooter>
@@ -222,7 +222,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88b013d9c9cfcf6069726"}>
+              <Link href={"/EspaceDeVente/66322f077229e5ff78d71028"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
             </CardFooter>
@@ -260,7 +260,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88b663d9c9cfcf6069729"}>
+              <Link href={"/EspaceDeVente/66322f3e7229e5ff78d71029"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
             </CardFooter>
@@ -290,7 +290,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88c0b3d9c9cfcf606972d"}>
+              <Link href={"/EspaceDeVente/66322fb27229e5ff78d7102a"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
             </CardFooter>
@@ -320,42 +320,13 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88c6d3d9c9cfcf6069731"}>
+              <Link href={"/EspaceDeVente/663230187229e5ff78d7102b"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
             </CardFooter>
           </Card>
 
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="/Images/mercedes/classE.jpg"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>Mercedes Class E</CardTitle>
-                <CardDescription>2020</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88cb83d9c9cfcf6069737"}>
-                <Button variant="destructive">View Car</Button>
-              </Link>
-              <Badge variant="outline">New</Badge>
-            </CardFooter>
-          </Card>
+          
         </div>
 
         <div className="w-1/2 flex items-center justify-center ">
@@ -386,7 +357,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/audi/audia3.jpg"
+                  src="https://images.pexels.com/photos/38637/car-audi-auto-automotive-38637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -406,7 +377,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88d0f3d9c9cfcf606973a"}>
+              <Link href={"/EspaceDeVente/663230657229e5ff78d7102c"}>
                 <Button variant="destructive">View Car</Button>
               </Link>
             </CardFooter>
@@ -435,7 +406,7 @@ export default function Home() {
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
-                  src="/Images/audi/audirs7.jpg"
+                  src="https://images.pexels.com/photos/17593023/pexels-photo-17593023/free-photo-of-rue-arbres-voiture-vehicule.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width={200}
                   height={200}
                   alt="bmw"
@@ -455,7 +426,7 @@ export default function Home() {
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/65e88d723d9c9cfcf6069741"}>
+              <Link href={"/EspaceDeVente/663231027229e5ff78d7102d"}>
                 <Button variant="destructive">View Car</Button>{" "}
               </Link>
               <Badge variant="outline">New</Badge>

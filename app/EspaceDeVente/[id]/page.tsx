@@ -2,7 +2,6 @@ import React from "react";
 import "./page.css";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { fetchOneCar } from "@/app/api/Cars/[id]/fetchonecardataaa";
 import {
   Card,
   CardContent,
@@ -32,7 +31,7 @@ import FeedBackForm from "@/app/(components)/FeedBackForm";
 import StarsDisplay from "@/app/(components)/StarsDisplay";
 import {fetchAllCars} from "@/app/api/Cars/fetchcardataa";
 import {fetchAllFeedBack} from "@/app/api/FeedBack/fetchfeedbacks";
-
+import {fetchOneCar} from "@/app/api/Cars/[id]/fetchonecardataaa";
 
 
 interface Comment {
@@ -60,8 +59,9 @@ interface Props {
 
 
 
-async function page({ params }:Props) {
+async function page({ params }:any) {
   let car = {};
+  
   const response = await fetchOneCar(params.id);
   console.log(response)
 

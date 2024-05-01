@@ -1,6 +1,6 @@
 import Cars from "@/app/(models)/Carsdetail"; // Assurez-vous que le chemin est correct
 
-export async function fetchOneCar(id: string) {
+export async function fetchOneCar(id: any) {
   try {
     console.log(id);
     const car = await Cars.findOne({ _id: id });
